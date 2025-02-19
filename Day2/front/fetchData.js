@@ -2,7 +2,8 @@
 export const getEmployees=async ()=>{
     try {
         console.log("Fetching employee data...");
-        let response = await fetch("http://localhost:3000/data");
+        let response = await fetch("http://localhost:3000/data",{ method: "GET",
+            headers: { "html-api-key": "indexFile-secret-api-key" }});
 
         if (!response.ok) {
             throw new Error("Failed to fetch data");

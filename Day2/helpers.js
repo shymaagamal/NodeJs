@@ -14,6 +14,7 @@ export const addEmployeeData=(newemployee,res)=>{
 
     res.writeHead(200, { "Content-Type": "application/json" });
     res.end(JSON.stringify({message:"Employee added", employees:employees,employee:newemployee}));
+    
 }; 
 
 export const EmployeeDataPage= (req,res) => {
@@ -31,10 +32,11 @@ export  const DataRequest= (req,res) => {
     let filePath = path.join(__dirname, "employee.json" );
     const readStream = fs.createReadStream(filePath);
     res.writeHead(200, { "Content-Type": "application/json" });
-    readStream.on(error,()=>{
+    readStream.on("error",()=>{
         res.writeHead(404,{"content-type": 'application/json'});
         res.end(JSON.stringify({message:"file not found"}));
-    })
+    });
+
     readStream.pipe(res);
 
 }
@@ -48,8 +50,7 @@ export const HandelOtherRequets=(req,res)=>{
     
     let contentType="text/html";
     let exname=path.extname(req.url);
-    console.log("filePath",filePath);
-
+    console.log("shaiama",exname);
     switch (exname) {
         case ".css":
             contentType = "text/css";
@@ -57,15 +58,36 @@ export const HandelOtherRequets=(req,res)=>{
             case ".js":
                 contentType = "application/javascript";
             break;
+            case ".json":
+                contentType = "application/json";
+                break;
+            case ".jpg":
+                contentType = "image/jpg";
+                break; 
+            case ".jpeg":
+                contentType = "image/jpeg";
+                break;   
+
     }
+
+    if(contentType==="text/html"){
+        let notFoundPath = path.join(__dirname, "404.html");
+        res.writeHead(404, { "Content-Type": "text/html" });
+
+        fs.createReadStream(notFoundPath).pipe(res).on("error", () => {
+            res.end("<h1>404 - Page Not Found</h1>");
+        });
+    }
+    else{
     res.writeHead(200, { "Content-Type": contentType });
     const readStream = fs.createReadStream(filePath);
     readStream.on('error', () => {
-        res.writeHead(404, { "Content-Type": "text/plain" });
+ 
         res.end(JSON.stringify({ message: "File not found" }));
     });
 
     readStream.pipe(res);
+}
 
 }   
 

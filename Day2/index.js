@@ -56,6 +56,23 @@ const server = http.createServer((req, res) => {
     {
         ImageAstronomyDownload(req,res);
     }
+    else if(req.method === "POST" && req.url === '/employee')
+    {
+        let data = "";
+        req.on("data", (chunk) => {
+            data += chunk.toString();
+            console.log("Data:", chunk);
+        });
+        req.on("end", () => {
+                console.log("POST request shaoamaaaaaaaaaaaaaaaaaaaaaaaaa",data);
+    
+                const { name, email, level, experience, salary } = JSON.parse(data);
+                console.log("Data:", { name, email, level, experience, salary });
+                addEmployeeData({ name, email, level, experience, salary }, res);
+    
+        });
+    }
+    
     else{
         console.log("Other request");
         console.log("URL:",req.url);

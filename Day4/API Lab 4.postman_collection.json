@@ -1,0 +1,169 @@
+{
+	"info": {
+		"_postman_id": "757d0209-404f-4bbf-871b-bb4d001619bf",
+		"name": "API Lab 4",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42369978"
+	},
+	"item": [
+		{
+			"name": "GetAllLeaves With paramaters",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n    \"fullname\": \"\",\r\n    \"dob\": \"1990-05-15\",\r\n    \"password\": \"password123\",\r\n    \"title\": \"DevOps Engineer\",\r\n    \"department\": \"IT\",\r\n    \"email\": \"salem@example.com\",\r\n    \"phone\": \"1234567890\",\r\n    \"yearsOfExperience\": 5\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/leaves?limit=3&skip=0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"leaves"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "3"
+						},
+						{
+							"key": "skip",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GettAllEmployees",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Update Level using id",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/leaves/67bdca1e3fa12f7bd4777e7e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"leaves",
+						"67bdca1e3fa12f7bd4777e7e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post leave",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"employeeId\": \"67bb93d8ef3648a6058b3561\",\r\n  \"empBukupId\": \"67bc83850a93064ee0fd7558\",\r\n  \"leaveType\": \"casual\",\r\n  \"duration\": 5,\r\n  \"status\": \"inprogress\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/leaves/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"leaves",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get Leaves For an employee",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Update Employee with id",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "        {\r\n\r\n\r\n        \"title\": \"DevOps Enginneer\",\r\n        \"department\": \"Biomedical\",\r\n        }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/employees/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"employees",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Employee",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Employee",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Access route is not found",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

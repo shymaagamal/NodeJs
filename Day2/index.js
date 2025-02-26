@@ -4,6 +4,8 @@ import  {DataRequest , EmployeeDataPage, HandelOtherRequets,addEmployeeData ,Ima
 
 
 const server = http.createServer((req, res) => {
+    console.log(req.method,req.url);
+    
     if(req.method==="GET" && req.url === "/data")
     {
         if (req.headers['html-api-key'] !== 'indexFile-secret-api-key') {

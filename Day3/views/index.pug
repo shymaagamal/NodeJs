@@ -1,0 +1,29 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Employees List
+    link(rel="stylesheet", href="./stylingEmployees.css")
+  body
+    table
+      thead
+        tr
+          th Name
+          th Email
+          th Experience
+          th Level
+          th Salary
+      tbody
+        //- Check if there are employees
+        if employees && employees.length
+          each employee in employees
+            tr
+              td= employee.name
+              td= employee.email
+              td= employee.experience
+              td= employee.level
+              td= employee.salary
+        else
+          tr
+            td(colspan="5") No employees found.

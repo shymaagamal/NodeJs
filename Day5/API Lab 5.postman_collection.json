@@ -1,0 +1,392 @@
+{
+	"info": {
+		"_postman_id": "b07e0321-6551-48a3-8544-4e0f1e28e561",
+		"name": "API Lab 5",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42369978"
+	},
+	"item": [
+		{
+			"name": "Access route is not found",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Register Emploee",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"fullname\": \"Ahmed Salem`\",\r\n  \"dob\": \"1992-05-15\",\r\n  \"password\": \"MySecretPass123\",\r\n  \"title\": \"Software Enginneer\",\r\n  \"department\": \"Biomedical\",\r\n  \"email\": \"alice.smith@example.com\",\r\n  \"phone\": \"1112223333\",\r\n  \"yearsOfExperience\": 3\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/employees/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"employees",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"67be5df581b50ed75270b667\",\r\n    \"password\":\"MySecretPass123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/employees/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"employees",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post leave",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YmU1ZGY1ODFiNTBlZDc1MjcwYjY2NyIsImlhdCI6MTc0MDUzMTEwNiwiZXhwIjoxNzQwNTM0NzA2fQ.8zTBiFmFCZIIIxhpcbbTvQIuthW8y_rzIwvvW71K0Ik",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"employeeId\": \"67be5df581b50ed75270b667\",\r\n  \"empBukupId\": \"67bc83850a93064ee0fd7558\",\r\n  \"leaveType\": \"casual\",\r\n  \"duration\": 5,\r\n  \"status\": \"inprogress\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/leaves/67be5df581b50ed75270b667",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"leaves",
+						"67be5df581b50ed75270b667"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Level using unAuth id",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YmU1ZGY1ODFiNTBlZDc1MjcwYjY2NyIsImlhdCI6MTc0MDUzMTEwNiwiZXhwIjoxNzQwNTM0NzA2fQ.8zTBiFmFCZIIIxhpcbbTvQIuthW8y_rzIwvvW71K0Ik",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"leaveType\": \" sick\",\r\n  \"duration\": 8\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/leaves/67bdca1e3fa12f7bd4777e7e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"leaves",
+						"67bdca1e3fa12f7bd4777e7e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Level using Auth id",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/leaves/67bdca1e3fa12f7bd4777e7e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"leaves",
+						"67bdca1e3fa12f7bd4777e7e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Gett Allemps",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YmUxNTNjZDk1ZjRkNzljMDc4ODcyOSIsImlhdCI6MTc0MDUyODE0OCwiZXhwIjoxNzQwNTMxNzQ4fQ.APSjlbw6soAyF3fxcfT0hsFFHsVAspAnhN4Ai-6sZZE",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/employees?=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YmUxNTNjZDk1ZjRkNzljMDc4ODcyOSIsImlhdCI6MTc0MDUyNTI5MSwiZXhwIjoxNzQwNTI1NTkxfQ.Vnjo_depUbfSV22umucR4mQJmraalcm9HBD_QxCw4z0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"employees"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YmUxNTNjZDk1ZjRkNzljMDc4ODcyOSIsImlhdCI6MTc0MDUyNTI5MSwiZXhwIjoxNzQwNTI1NTkxfQ.Vnjo_depUbfSV22umucR4mQJmraalcm9HBD_QxCw4z0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get Leaves For Authurized employee",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YmU1ZGY1ODFiNTBlZDc1MjcwYjY2NyIsImlhdCI6MTc0MDUyOTQxMiwiZXhwIjoxNzQwNTMzMDEyfQ.mW0K3NxWlwAOVEUoxMXxmqSg71L0JMiB_seoRexFA-8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/employees/67be5df581b50ed75270b667/leaves/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"employees",
+						"67be5df581b50ed75270b667",
+						"leaves",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get leaves for an unAuthemployees",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YmU1ZGY1ODFiNTBlZDc1MjcwYjY2NyIsImlhdCI6MTc0MDUyOTE1MiwiZXhwIjoxNzQwNTMyNzUyfQ.aigWkuFrGh0oVv8g-2sRUcKGD_v8g6rS8WLQASHlhns",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/employees/67bb93c617be1e19d156d1b2/leaves/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"employees",
+						"67bb93c617be1e19d156d1b2",
+						"leaves",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update AuthEmployee",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YmU1ZGY1ODFiNTBlZDc1MjcwYjY2NyIsImlhdCI6MTc0MDUyOTE1MiwiZXhwIjoxNzQwNTMyNzUyfQ.aigWkuFrGh0oVv8g-2sRUcKGD_v8g6rS8WLQASHlhns",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"cloud Enginneer\",\r\n    \"department\": \"Biomedical\"\r\n}\r\n\r\n\r\n       \r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/employees/67be5df581b50ed75270b667",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"employees",
+						"67be5df581b50ed75270b667"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update unAuth Employee",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YmU1ZGY1ODFiNTBlZDc1MjcwYjY2NyIsImlhdCI6MTc0MDUyOTE1MiwiZXhwIjoxNzQwNTMyNzUyfQ.aigWkuFrGh0oVv8g-2sRUcKGD_v8g6rS8WLQASHlhns",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/employees/67bb93c617be1e19d156d1b2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"employees",
+						"67bb93c617be1e19d156d1b2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete unAuth Employee",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YmUxNTNjZDk1ZjRkNzljMDc4ODcyOSIsImlhdCI6MTc0MDUyODE0OCwiZXhwIjoxNzQwNTMxNzQ4fQ.APSjlbw6soAyF3fxcfT0hsFFHsVAspAnhN4Ai-6sZZE",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/employees/67bc7ca45d61b27a30b1e9e9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"employees",
+						"67bc7ca45d61b27a30b1e9e9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Auth Employee",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YmUxNTNjZDk1ZjRkNzljMDc4ODcyOSIsImlhdCI6MTc0MDUyODE0OCwiZXhwIjoxNzQwNTMxNzQ4fQ.APSjlbw6soAyF3fxcfT0hsFFHsVAspAnhN4Ai-6sZZE",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/employees/67be153cd95f4d79c0788729",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"employees",
+						"67be153cd95f4d79c0788729"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Gett auth Employee data",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YmU1ZGY1ODFiNTBlZDc1MjcwYjY2NyIsImlhdCI6MTc0MDUyOTQxMiwiZXhwIjoxNzQwNTMzMDEyfQ.mW0K3NxWlwAOVEUoxMXxmqSg71L0JMiB_seoRexFA-8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/employees/67be5df581b50ed75270b667",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"employees",
+						"67be5df581b50ed75270b667"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

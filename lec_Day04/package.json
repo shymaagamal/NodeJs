@@ -1,0 +1,26 @@
+{
+  "name": "day04",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "dev": "nodemon --inspect index.js",
+    "lint": "eslint . --ext .js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "express": "^4.21.2",
+    "mongoose": "^8.10.1"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^4.3.0",
+    "eslint": "^9.21.0",
+    "nodemon": "^3.1.9"
+  }
+}

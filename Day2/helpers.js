@@ -50,7 +50,6 @@ export const HandelOtherRequets=(req,res)=>{
     
     let contentType="text/html";
     let exname=path.extname(req.url);
-    console.log("shaiama",exname);
     switch (exname) {
         case ".css":
             contentType = "text/css";
